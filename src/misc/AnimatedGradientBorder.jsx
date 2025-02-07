@@ -7,10 +7,10 @@ const AnimatedGradientBorder = ({ children }) => {
       animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
       transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
       style={{
-        background: "linear-gradient(90deg, #ff7eb3, #ff758c, #ff7eb3)",
+        background: "linear-gradient(90deg,rgb(44, 91, 231),rgb(24, 222, 195),rgb(23, 201, 106))",
         backgroundSize: "200% 200%",
         padding: "4px",
-        borderRadius: "12px",
+        width: "250px"
       }}
     >
       {/* Inner content container */}

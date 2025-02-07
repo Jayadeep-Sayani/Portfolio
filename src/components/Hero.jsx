@@ -21,7 +21,6 @@ export const Hero = () => {
         <h1>Hello, I'm <span>Jay!</span></h1>
         <div className="shappeal">Fullstack Developer <span>•</span> UI/UX Designer <span>•</span> Your Friendly Tech Guy</div>
         <button className="hero-button">Download Resume</button>
-        
       </div>
     </div>
     

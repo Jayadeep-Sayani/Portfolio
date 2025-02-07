@@ -19,26 +19,91 @@ export const Experience = () => {
     <Timeline position="alternate">
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineDot variant="outlined" sx={{ borderColor: '#FF7130' }} />
+          <TimelineDot sx={{ backgroundColor: '#3aff7c' }} />
           <TimelineConnector />
         </TimelineSeparator>
         <TimelineContent>
             <AnimatedGradientBorder>
                 <div className="experience-box">
-                    <div>2017 - 2020</div>
-                    <div>Software Engineer</div>
-                    <div>ABC Corp.</div>
+                    <div className="experience-date">2022 - 2024</div>
+                    <div className="experience-role">Team Generalist</div>
+                    <div className="experience-company">FTC Robotics Team</div>
                 </div>
             </AnimatedGradientBorder>
         </TimelineContent>
       </TimelineItem>
+
       <TimelineItem>
         <TimelineSeparator>
-          <TimelineDot />
+          <TimelineDot sx={{ backgroundColor: "#3aff7c" }} />
+          <TimelineConnector />
         </TimelineSeparator>
-        <TimelineContent><div>e</div></TimelineContent>
+        <TimelineContent>
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <AnimatedGradientBorder>
+            <div className="experience-box">
+                    <div className="experience-date">2022-2024</div>
+                    <div className="experience-role">Ambassador</div>
+                    <div className="experience-company">HighTechU</div>
+              </div>
+          </AnimatedGradientBorder>
+          </div>
+        </TimelineContent>
       </TimelineItem>
+
+      <TimelineItem>
+        <TimelineSeparator>
+          <TimelineDot sx={{ backgroundColor: '#3aff7c' }} />
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent>
+            <AnimatedGradientBorder>
+                <div className="experience-box">
+                    <div className="experience-date">JUL 2024 - SEPT 2024</div>
+                    <div className="experience-role">Fellowship</div>
+                    <div className="experience-company">Headstarter</div>
+                </div>
+            </AnimatedGradientBorder>
+        </TimelineContent>
+      </TimelineItem> 
+
+      <TimelineItem>
+        <TimelineSeparator>
+          <TimelineDot sx={{ backgroundColor: "#3aff7c" }} />
+          <TimelineConnector />
+        </TimelineSeparator>
+        <TimelineContent>
+          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <AnimatedGradientBorder>
+            <div className="experience-box">
+                  <div className="experience-date">SEPT 2024 - DEC 2024</div>
+                  <div className="experience-role">Director of IT</div>
+                  <div className="experience-company">UVic Engineering and Computer Science Society</div>
+              </div>
+          </AnimatedGradientBorder>
+          </div>
+        </TimelineContent>
+      </TimelineItem>
+
+      <TimelineItem>
+        <TimelineSeparator>
+          <TimelineDot sx={{ backgroundColor: '#3aff7c' }} />
+        </TimelineSeparator>
+        <TimelineContent>
+            <AnimatedGradientBorder>
+                <div className="experience-box">
+                    <div className="experience-date">DEC 2024 - PRESENT</div>
+                    <div className="experience-role">Computer Team</div>
+                    <div className="experience-company">UVic Satelite Design</div>
+                </div>
+            </AnimatedGradientBorder>
+        </TimelineContent>
+      </TimelineItem> 
+
+
     </Timeline>
+
+
   
 </div>
   )
