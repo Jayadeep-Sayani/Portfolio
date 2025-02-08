@@ -371,17 +371,14 @@ body {
 
 .project {
   width: 400px;
-  padding: 10px 10px 20px 10px;
-  background: rgb(21, 21, 21);
+  background: #151515;
   margin: 20px;
-  border-radius: 20px;
   border: 1px solid #2c2c2c;
 }
 
 .project img {
   width: 400px;
   border-radius: 20px;
-  box-shadow: 0 4px 0px #3aff7c;
   border: 1px solid #000;
 }
 
@@ -412,10 +409,226 @@ body {
 
 .project p {
   font-family: 'Open Sans', sans-serif;
-  color: #b3b3b3;
+  color: #cfcfcf;
   line-height: 1.8;
 }
 
 .project p span {
   color: #3aff7c;
+}
+
+
+
+
+.one:hover, .two:hover, .three:hover, .four:hover, .five:hover, .six:hover {
+  border-radius: 22px;
+}
+
+.one, .two, .three, .four, .five, .six {
+  transition: all .1s;
+  width: 430px;
+}
+
+
+.one img, .two img, .three img, .four img, .five img, .six img {
+  margin-top: 20px;
+}
+
+.one > .border, .two > .border, .three > .border, .four > .border, .five > .border, .six > .border {
+  transition: all .1s;
+  background-color: #151515;
+  height: 100%;
+  width: auto;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.one .border:hover, .two .border:hover, .three .border:hover, .four .border:hover, .five .border:hover, .six .border:hover {
+    transform: scale(0.98);
+    border-radius: 20px;
+   
+}
+
+.one span, .two span, .three span, .four span, .five span, .six span {
+  font-weight: 600;
+}
+
+.one button, .two button, .three button, .four button, .five button, .six button {
+  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: #000000;
+
+  border: none;
+  width: auto;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.one button a, .two button a, .three button a, .four button a, .five button a, .six button a {
+  text-decoration: none;
+  padding: 16px 32px;
+  color: #f0efef;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+
+
+/* One specifics */
+
+.one {
+  background-image: linear-gradient(163deg, #f5c253 0%, #fc6f1e 100%);
+}
+
+.one span {
+  color: #fbb24c !important;
+}
+
+.one h3 {
+  color: #fbb24c;
+}
+
+.one:hover{
+  box-shadow: 0px 0px 30px 1px rgba(245, 210, 10, 0.3);  
+}
+
+.one button {
+  box-shadow: 5px 5px 0px #fbb24c;
+}
+
+
+/* Two specifics */
+
+.two button {
+  box-shadow: 5px 5px 0px #ff00f2;
+}
+
+.two h3 {
+  color: #ff00f2;
+}
+
+.two:hover{
+  box-shadow: 0px 0px 30px 1px rgba(225, 10, 245, 0.3);  
+}
+
+.two span {
+  color: #ff00f2 !important;
+}
+
+.two {
+  background-image: linear-gradient(163deg, #ff00aa 0%, #9800df 100%);
+}
+
+
+/* three specifics */
+
+.three button {
+  box-shadow: 2.5px 2.5px 0px #ed1c24,
+  5px 5px 0px #0066b3;
+
+}
+
+.three h3 {
+  color: #0066b3;
+}
+
+.three:hover{
+  box-shadow: 0px 20px 30px 1px rgba(0, 110, 255, 0.3),
+  0px -20px 30px 1px rgba(237, 28, 36, 0.3);  
+}
+
+.three span {
+  color: #ed1c24 !important;
+}
+
+.three {
+  background-image: linear-gradient(163deg, #ed1c24 0%, #0066b3 100%);
+}
+
+
+/* four specifics */
+
+.four button {
+  box-shadow: 5px 5px 0px #9c9e9d;
+
+}
+
+.four h3 {
+  color: #fff;
+}
+
+.four:hover{
+  box-shadow: 0px 0px 30px 1px rgba(255, 255, 255, 0.3);
+}
+
+.four span {
+  color: #fff !important;
+}
+
+.four {
+  background-image: linear-gradient(163deg, #423e3e 0%, #b9b8b8 100%);
+}
+
+.four img {
+  height: 230px;
+}
+
+
+/* five specifics */
+
+.five button {
+  box-shadow: 5px 5px 0px #63b866;
+
+}
+
+.five h3 {
+  color: #63b866;
+}
+
+.five:hover{
+  box-shadow: 0px 0px 30px 1px #4ea5514d;
+}
+
+.five span {
+  color: #63b866 !important;
+}
+
+.five {
+  background-image: linear-gradient(163deg, #63b866 0%, #b6ee1c 100%);
+}
+
+
+/* four specifics */
+
+.six button {
+  box-shadow: 5px 5px 0px #1ebfff;
+
+}
+
+.six h3 {
+  color: #1ebfff;
+}
+
+.six:hover{
+  box-shadow: 0px 0px 30px 1px rgba(20, 161, 255, 0.3);
+}
+
+.six span {
+  color: #1ebfff !important;
+}
+
+.six {
+  background-image: linear-gradient(163deg, #1ebfff 0%, #0400ff 100%);
+}
+
+.six img {
+  height: 230px;
 }
