@@ -2,12 +2,12 @@ import React from 'react'
 
 export const Projects = () => {
   return (
-    <div className='projects'>
+    <div className='projects' id="projects">
       <h1>My Works</h1>
       <div class="line-with-diamond">
         <div class="diamond"></div>
       </div>
-      <div className="center-projects">
+      <div className="center-projects" >
         <div className="projects-container">
           <div className="project one">
             <div className="border">
