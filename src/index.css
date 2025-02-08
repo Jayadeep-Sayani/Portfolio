@@ -6,8 +6,15 @@
 }
 
 ::selection {
-  background-color: #3aff7c;
+  background-color: var(--primary-color);
   color: #000;
+}
+
+:root {
+  --primary-color: #3aff7c;
+  /* --primary-color: #5ea4ff; */
+  --secondary-color: #212121;
+  --tertiary-color: #0e0c0c;
 }
 
 body {
@@ -76,7 +83,7 @@ body {
 }
 
 .hero-container span {
-  color: #3aff7c;
+  color: var(--primary-color);
 }
 
 .hero-button {
@@ -90,14 +97,14 @@ body {
   color: #fff;
   cursor: pointer;
   z-index: 0;
-  box-shadow:  4px 4px 0 #3aff7c;
+  box-shadow:  4px 4px 0 var(--primary-color);
   margin-bottom: 50px;
   transition: ease-in-out 0.3s;
 }
 
 .hero-button:hover {
   box-shadow: none;
-  background-color: #3aff7c;
+  background-color: var(--primary-color);
   color: #000;
 }
 
@@ -249,16 +256,21 @@ body {
 }
 
 
-.about h1, .experience h1 {
+.about h1, .experience h1, .projects h1 {
   font-size: 48px;
   font-weight: 700;
   font-family: 'Open Sans', sans-serif;
-  color: #3aff7c;
+  color: var(--primary-color);
 }
 
 .experience h1 {
   text-align: center;
 }
+
+.projects h1  {
+  text-align: center;
+}
+
 
 
 .about p {
@@ -268,7 +280,7 @@ body {
   color: #B3B3B3;
 }
 
-.about .line-with-diamond, .experience .line-with-diamond {
+.about .line-with-diamond, .experience .line-with-diamond, .projects .line-with-diamond {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -283,6 +295,16 @@ body {
   margin-bottom: 60px;
 }
 
+.projects .line-with-diamond {
+  width: 250px;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+.projects {
+  margin-top: 240px;
+}
+
 .line-with-diamond::before,
 .line-with-diamond::after {
   content: "";
@@ -294,13 +316,13 @@ body {
 .diamond {
   width: 12px;
   height: 12px;
-  background-color: #3aff7c;
+  background-color: var(--primary-color);
   transform: rotate(45deg);
   margin: 0 10px;
 }
 
 .about span {
-  color: #3aff7c;
+  color: var(--primary-color);
   font-weight: 500;
 }
 
@@ -331,11 +353,69 @@ body {
   font-family: 'Poppins';
   font-size: 22px;  
   font-weight: 700;
-  color: #3aff7c;
+  color: var(--primary-color);
 }
 
 .experience-company {
   font-size: 13px;
   color: #818181;
   
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: fit-content;
+  justify-content: center;
+}
+
+.project {
+  width: 400px;
+  padding: 10px 10px 20px 10px;
+  background: rgb(21, 21, 21);
+  margin: 20px;
+  border-radius: 20px;
+  border: 1px solid #2c2c2c;
+}
+
+.project img {
+  width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 4px 0px #3aff7c;
+  border: 1px solid #000;
+}
+
+.center-projects {
+  display: flex;
+  justify-content: center;
+}
+
+.project h3, .project p {
+  padding: 0px 20px;
+  padding-bottom: 10px;
+}
+
+.project h4 {
+  margin-top: 30px;
+  padding: 0px 20px;
+  font-size: 16px;
+  font-family: 'Rajdhani', sans-serif;
+  color: #b3b3b3;
+}
+
+.project h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #3aff7c;
+}
+
+.project p {
+  font-family: 'Open Sans', sans-serif;
+  color: #b3b3b3;
+  line-height: 1.8;
+}
+
+.project p span {
+  color: #3aff7c;
 }
