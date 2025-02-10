@@ -723,4 +723,8 @@ body {
   .shappeal ::marker {
     color: var(--primary-color);
   }
+
+  .shappeal {
+    font-size: 30px;
+  }
 }
