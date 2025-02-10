@@ -674,4 +674,14 @@ body {
     margin-right: auto !important;
     height: 400px !important;
   }
+
+  .project {
+    margin-right: 0;
+    margin-left: 0;
+    width: 90%; 
+  }
+
+  .project img {
+    width: 90%; 
+  }
 }
