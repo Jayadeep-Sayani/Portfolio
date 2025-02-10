@@ -9,7 +9,7 @@ import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import { useMediaQuery } from "@mui/material";
 import AnimatedGradientBorder from "../misc/AnimatedGradientBorder";
 export const Experience = () => {
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery("(max-width:650px)");
 
   return (
     <div className="experience" id="experience">

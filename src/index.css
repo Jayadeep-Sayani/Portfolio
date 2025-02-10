@@ -675,6 +675,19 @@ body {
     height: 400px !important;
   }
 
+  .hero-button {
+    width: 70%;
+    padding: 30px 0;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-container h1 {
+    font-size: 100px;
+  }
+
   .project {
     margin-right: 0;
     margin-left: 0;
@@ -682,6 +695,32 @@ body {
   }
 
   .project img {
+    margin-right: 0;
+    margin-left: 0;
     width: 90%; 
+  }
+}
+
+@media (min-width: 1600px) {
+  .portrait {
+    min-width: 600px !important;
+    height: 600px !important;
+  }
+}
+
+
+@media (min-width: 1800px) {
+  .text-container-about {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 1350px) {
+  .hero-container-masked {
+    -webkit-mask-image: none;
+  }
+
+  .shappeal ::marker {
+    color: var(--primary-color);
   }
 }
