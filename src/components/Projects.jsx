@@ -4,8 +4,8 @@ export const Projects = () => {
   return (
     <div className='projects' id="projects">
       <h1>My Works</h1>
-      <div class="line-with-diamond">
-        <div class="diamond"></div>
+      <div className="line-with-diamond">
+        <div className="diamond"></div>
       </div>
       <div className="center-projects" >
         <div className="projects-container">

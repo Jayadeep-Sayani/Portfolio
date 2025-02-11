@@ -1,6 +1,5 @@
 import React from 'react'
 import { useMediaQuery } from "@mui/material";
-import { ul } from 'framer-motion/client';
 
 export const Hero = () => {
   const roleQuery = useMediaQuery("(max-width:1350px)");
@@ -8,8 +7,8 @@ export const Hero = () => {
   return (
     <div className="hero-container" id="home">
       <div className="hero-container-masked">
-          <div class="area" >
-            <ul class="circles">
+          <div className="area">
+            <ul className="circles">
               <li></li>
               <li></li>
               <li></li>

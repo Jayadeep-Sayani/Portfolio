@@ -261,18 +261,14 @@ body {
 }
 
 
-.about h1, .experience h1, .projects h1 {
+.about h1, .experience h1, .projects h1, .skills h1 {
   font-size: 48px;
   font-weight: 700;
   font-family: 'Open Sans', sans-serif;
   color: var(--primary-color);
 }
 
-.experience h1 {
-  text-align: center;
-}
-
-.projects h1  {
+.experience h1, .projects h1, .skills h1 {
   text-align: center;
 }
 
@@ -285,7 +281,7 @@ body {
   color: #B3B3B3;
 }
 
-.about .line-with-diamond, .experience .line-with-diamond, .projects .line-with-diamond {
+.about .line-with-diamond, .experience .line-with-diamond, .projects .line-with-diamond, .skills .line-with-diamond {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -304,6 +300,11 @@ body {
   width: 250px;
   margin: auto;
   margin-bottom: 40px;
+}
+
+.skills .line-with-diamond {
+  width: 125px;
+  margin: auto;
 }
 
 .projects {
@@ -334,6 +335,11 @@ body {
 }
 
 .experience {
+  margin-top: 150px;
+  padding-top: 100px;
+}
+
+.skills {
   margin-top: 150px;
   padding-top: 100px;
 }
@@ -459,7 +465,7 @@ body {
    
 }
 
-.one span, .two span, .three span, .four span, .five span, .six span {
+.one span, .two span, .three span, .four span, .five span, .six span, .footer span {
   font-weight: 600;
 }
 
@@ -487,6 +493,37 @@ body {
   font-weight: 600;
 }
 
+.footer p {
+  color: #b3b3b3;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer {
+  border: 1px solid #b3b3b345;
+  border-radius: 5px;
+  margin: auto;
+  max-width: 800px;
+  margin-bottom: 50px;
+  padding: 20px 40px;
+  background: #000;
+}
+
+.footer span {
+  color: #3aff7c;
+}
+
+.social-media {
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+}
+
+.social-media a {
+  text-decoration: none;
+  color: #bcbcbc;
+  font-size: 30px;
+}
 
 
 
@@ -708,6 +745,26 @@ body {
   }
 }
 
+
+@media (max-width: 1000px) {
+  .footer {
+    max-width: 80%;
+  }
+
+  .social-media {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer {
+    max-width: 60%;
+  }
+  
+  .social-media {
+    margin-top: 20px;
+  }
+}
 
 @media (min-width: 1800px) {
   .text-container-about {
