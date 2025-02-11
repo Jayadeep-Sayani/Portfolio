@@ -11,5 +11,16 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
     <script src="https://kit.fontawesome.com/38099597c3.js" crossorigin="anonymous"></script>
+    <script>
+      window.onload = function() {
+        var cursor = document.querySelector('.blob');
+
+        document.addEventListener('mousemove', function(e){
+          var x = e.clientX;
+          var y = e.clientY;
+          cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+        });
+      }
+    </script>
   </body>
 </html>
