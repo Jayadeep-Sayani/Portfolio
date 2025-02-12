@@ -99,23 +99,23 @@ export const Skills = () => {
         <h2>Soft Skills</h2>
         <ul>
           <li>
-            <img src="https://www.svgrepo.com/show/452228/problem-solving.svg" alt="Problem-solving" />
+            <img src="/Portfolio/problem-solving.png" alt="Problem-solving" />
             <h5>Problem-solving</h5>
           </li>
           <li>
-            <img src="https://www.svgrepo.com/show/452204/communication.svg" alt="Communication" />
+            <img src="/Portfolio/communication.png" alt="Communication" />
             <h5>Communication</h5>
           </li>
           <li>
-            <img src="https://www.svgrepo.com/show/452209/teamwork.svg" alt="Teamwork" />
+            <img src="/Portfolio/teamwork.png" alt="Teamwork" />
             <h5>Teamwork</h5>
           </li>
           <li>
-            <img src="https://www.svgrepo.com/show/452205/adaptability.svg" alt="Adaptability" />
+            <img src="/Portfolio/adaptability.png" alt="Adaptability" />
             <h5>Adaptability</h5>
           </li>
           <li>
-            <img src="https://www.svgrepo.com/show/452206/time-management.svg" alt="Time Management" />
+            <img src="/Portfolio/time-management.png" alt="Time Management" />
             <h5>Time Management</h5>
           </li>
         </ul>
