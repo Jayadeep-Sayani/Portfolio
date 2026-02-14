@@ -1,15 +1,44 @@
 import React from 'react'
+import { Github, Linkedin, Mail, Phone } from 'lucide-react'
 
 export const Footer = () => {
   return (
     <div className="footer" id="contact">
-        <p>&copy; 2025 <span>Jayadeep Sayani</span>. All rights reserved.</p>
-        <div className="social-media">
-            <a href="https://github.com/jayadeep-sayani" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/jayadeep-sayani/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
-            <a href="mailto:jayadeeps1101@gmail.com" target="_blank" rel="noopener noreferrer"><i className="fas fa-envelope"></i></a>
-            <a href="tel:+2508809270" target="_blank" rel="noopener noreferrer"><i className="fas fa-phone"></i></a>
+      <div className="footer-content">
+        <div className="footer-text">
+          <p>&copy; 2025 <span>Jayadeep Sayani</span>. All rights reserved.</p>
         </div>
+        <div className="social-media">
+          <a 
+            href="https://github.com/jayadeep-sayani" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <Github size={20} />
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/jayadeep-sayani/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <Linkedin size={20} />
+          </a>
+          <a 
+            href="mailto:jayadeeps1101@gmail.com" 
+            aria-label="Email"
+          >
+            <Mail size={20} />
+          </a>
+          <a 
+            href="tel:+2508809270" 
+            aria-label="Phone"
+          >
+            <Phone size={20} />
+          </a>
+        </div>
+      </div>
     </div>
   )
 }

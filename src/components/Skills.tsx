@@ -1,6 +1,46 @@
 import React from 'react'
+import { useMediaQuery } from '@mui/material'
 
 export const Skills = () => {
+  const isMobile = useMediaQuery("(max-width:768px)");
+
+  const skillCategories = [
+    {
+      title: "Frontend",
+      skills: [
+        { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+        { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+        { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+        { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "Angular", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
+      ]
+    },
+    {
+      title: "Backend",
+      skills: [
+        { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+        { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+        { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+        { name: "C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
+        { name: "SQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+        { name: "REST APIs", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+        { name: "Firebase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
+        { name: "Bash", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" },
+        { name: "Godot", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/godot/godot-original.svg" },
+      ]
+    },
+    {
+      title: "Tools",
+      skills: [
+        { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+        { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+        { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+        { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+        { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+      ]
+    },
+  ];
+
   return (
     <div className='skills' id="skills">
       <h1>Skills</h1>
@@ -8,119 +48,26 @@ export const Skills = () => {
         <div className="diamond"></div>
       </div>
 
-      <div className="frontend">
-        <h2>Frontend</h2>
-        <ul>
-          <li>
-            <img src="https://cdn.worldvectorlogo.com/logos/html-1.svg" alt="HTML" />
-            <h5>HTML</h5>
-          </li>
-          <li>
-            <img src="https://img.icons8.com/?size=512&id=21278&format=png" alt="CSS" />
-            <h5>CSS</h5>
-          </li>
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png" alt="JavaScript" />
-            <h5>JavaScript</h5>
-          </li>
-          <li>
-            <img src="https://www.svgrepo.com/show/452092/react.svg" alt="React" />
-            <h5>React</h5>
-          </li>
-          <li>
-            <img src="https://www.svgrepo.com/show/374118/tailwind.svg" alt="Tailwind" />
-            <h5>Tailwind</h5>
-          </li>
-          <li>
-            <img src="https://www.svgrepo.com/show/353751/flutter.svg" alt="Flutter" />
-            <h5>Flutter</h5>
-          </li>
-        </ul>
+      <div className="skills-wrapper">
+        {skillCategories.map((category, categoryIndex) => (
+          <div key={categoryIndex} className="skill-category-section">
+            <div className="skill-category-header">
+              <h2 className="skill-category-title">{category.title}</h2>
+              <div className="skill-category-line"></div>
+            </div>
+            <div className="skills-flow">
+              {category.skills.map((skill, skillIndex) => (
+                <div key={skillIndex} className="skill-item">
+                  <div className="skill-icon-wrapper">
+                    <img src={skill.icon} alt={skill.name} className="skill-icon" />
+                  </div>
+                  <span className="skill-name">{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
-
-
-      <div className="backend">
-        <h2>Backend</h2>
-        <ul>
-          <li>
-            <img src="https://www.svgrepo.com/show/184143/java.svg" alt="Java" />
-            <h5>Java</h5>
-          </li>
-          <li>
-            <img src="https://cdn.iconscout.com/icon/free/png-256/free-python-logo-icon-download-in-svg-png-gif-file-formats--technology-social-media-vol-5-pack-logos-icons-3030224.png?f=webp&w=256" alt="Python" />
-            <h5>Python</h5>
-          </li>
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/2560px-PHP-logo.svg.png" alt="PHP" />
-            <h5>PHP</h5>
-          </li>
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/1853px-C_Programming_Language.svg.png" alt="C" />
-            <h5>C</h5>
-          </li>
-          <li>
-            <img src="https://www.svgrepo.com/show/353735/firebase.svg" alt="Firebase DB" />
-            <h5>Firebase</h5>
-          </li>
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Bash_Logo_Colored.svg/2048px-Bash_Logo_Colored.svg.png" alt="Bash" />
-            <h5>Bash</h5>
-          </li>
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Godot_icon.svg/2048px-Godot_icon.svg.png" alt="Godot Game Engine" />
-            <h5>Godot</h5>
-          </li>
-        </ul>
-      </div>
-
-      <div className="tools">
-        <h2>Tools</h2>
-        <ul>
-          <li>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png" alt="VS Code" />
-            <h5>VS Code</h5>
-          </li>
-          <li>
-            <img src="https://www.svgrepo.com/show/373623/git.svg" alt="Git" />
-            <h5>Git</h5>
-          </li>
-          <li>
-            <img src="https://developer.fedoraproject.org/static/logo/cli-app.png" alt="CLI" />
-            <h5>CLI</h5>
-          </li>
-          <li>
-            <img src="https://cdn.sanity.io/images/599r6htc/regionalized/46a76c802176eb17b04e12108de7e7e0f3736dc6-1024x1024.png" alt="Figma" />
-            <h5>Figma</h5>
-          </li>
-        </ul>
-      </div>
-
-      <div className="soft-skills">
-        <h2>Soft Skills</h2>
-        <ul>
-          <li>
-            <img src="/Portfolio/problem-solving.png" alt="Problem-solving" />
-            <h5>Problem-solving</h5>
-          </li>
-          <li>
-            <img src="/Portfolio/communication.png" alt="Communication" />
-            <h5>Communication</h5>
-          </li>
-          <li>
-            <img src="/Portfolio/teamwork.png" alt="Teamwork" />
-            <h5>Teamwork</h5>
-          </li>
-          <li>
-            <img src="/Portfolio/adaptability.png" alt="Adaptability" />
-            <h5>Adaptability</h5>
-          </li>
-          <li>
-            <img src="/Portfolio/time-management.png" alt="Time Management" />
-            <h5>Time Management</h5>
-          </li>
-        </ul>
-      </div>
-
     </div>
   )
 }

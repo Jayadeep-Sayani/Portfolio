@@ -1,15 +1,39 @@
 import React from "react";
-import Timeline from "@mui/lab/Timeline";
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
-import TimelineConnector from "@mui/lab/TimelineConnector";
-import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineDot from "@mui/lab/TimelineDot";
-import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import { useMediaQuery } from "@mui/material";
-import AnimatedGradientBorder from "../misc/AnimatedGradientBorder";
+import { Code, Palette } from "lucide-react";
+
 export const Experience = () => {
-  const isMobile = useMediaQuery("(max-width:650px)");
+  const isMobile = useMediaQuery("(max-width:768px)");
+
+  const experiences = [
+    {
+      date: "MAY 2025 - AUG 2025",
+      role: "Full Stack Developer Intern",
+      company: "CareLife",
+      location: "Remote, Canada",
+      description: [
+        "Developed responsive web pages for the Care Life Portal using Angular and Ionic, enhancing client need tracking and user accessibility.",
+        "Developed along with the backend team to create a JavaScript automation tool using REST APIs and file system operations to monitor 200+ fall detection cameras, which improved real-time incident tracking and reduced manual monitoring efforts.",
+        "Enhanced system reliability by flagging cameras within 2 minutes of failure through notifications in JavaScript.",
+        "Participated in sprint planning and code reviews using Agile workflow."
+      ],
+      skills: ["Angular", "Ionic", "JavaScript", "REST APIs", "Agile", "File System Operations"],
+      icon: Code,
+    },
+    {
+      date: "JAN 2025 - DEC 2025",
+      role: "Freelance Website Designer",
+      company: "Self-Employed",
+      location: "Remote",
+      description: [
+        "Designed and developed websites for UNUHR Inc., including web page creation, SEO optimization, and implementation of design principles aligned with client requirements.",
+        "Created and maintained website for Jamaican Canadian Bar Association (JCBA), ensuring responsive design and optimal user experience.",
+        "Collaborated with clients to understand their vision and translate requirements into functional, visually appealing websites."
+      ],
+      skills: ["WordPress", "WordPress Plugins", "SEO", "Web Design", "Client Relations"],
+      icon: Palette,
+    },
+  ];
 
   return (
     <div className="experience" id="experience">
@@ -18,60 +42,47 @@ export const Experience = () => {
         <div className="diamond"></div>
       </div>
 
-      <Timeline position={isMobile ? "right" : "alternate"}>
-        
-          
-        {[
-          {
-            date: "DEC 2024 - PRESENT",
-            role: "Computer Team",
-            company: "UVic Satellite Design",
-          },
-          {
-            date: "SEPT 2024 - DEC 2024",
-            role: "Director of IT",
-            company: "UVic Engineering and Computer Science Society",
-          },
-          {
-            date: "JUL 2024 - SEPT 2024",
-            role: "Fellowship",
-            company: "Headstarter",
-          },
-          {
-            date: "2022 - 2024",
-            role: "Ambassador",
-            company: "HighTechU",
-          },
-          {
-            date: "2022 - 2024",
-            role: "Team Generalist",
-            company: "FTC Robotics Team",
-          },
-        ].map((exp, index) => (
-          <TimelineItem key={index}>
-            {isMobile && (<TimelineOppositeContent style={{ flex: "0.1", paddingLeft: "0px" }} ></TimelineOppositeContent>)}
-            <TimelineSeparator>
-              <TimelineDot sx={{ backgroundColor: "#3aff7c" }} />
-              {index !== 4 && <TimelineConnector />}
-            </TimelineSeparator>
-            <TimelineContent
-              sx={{
-                display: "flex",
-                justifyContent: isMobile ? "flex-start" : index % 2 === 0 ? "flex-start" : "flex-end",
-              }}
-            >
-              <AnimatedGradientBorder>
-                <div className="experience-box">
-                  <div className="experience-date">{exp.date}</div>
-                  <div className="experience-role">{exp.role}</div>
-                  <div className="experience-company">{exp.company}</div>
-                </div>
-              </AnimatedGradientBorder>
-            </TimelineContent>
-
-          </TimelineItem>
-        ))}
-      </Timeline>
+      <div className="experience-cards-container">
+        {experiences.map((exp, index) => {
+          const IconComponent = exp.icon;
+          return (
+            <div key={index} className="experience-card">
+              <div className="experience-card-icon">
+                <IconComponent size={24} />
+              </div>
+              <div className="experience-card-content">
+                <div className="experience-role">{exp.role}</div>
+                <div className="experience-company">{exp.company}</div>
+                {exp.location && (
+                  <div className="experience-location">{exp.location}</div>
+                )}
+                <div className="experience-date">{exp.date}</div>
+                
+                {exp.description && (
+                  <div className="experience-description">
+                    <ul className="experience-bullets">
+                      {exp.description.map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                
+                {exp.skills && (
+                  <div className="experience-skills">
+                    <div className="experience-skills-label">Technologies:</div>
+                    <div className="experience-skills-tags">
+                      {exp.skills.map((skill, idx) => (
+                        <span key={idx} className="experience-skill-tag">{skill}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

@@ -10,11 +10,11 @@ const AnimatedGradientBorder = ({ children }) => {
         background: "linear-gradient(90deg,rgb(44, 91, 231),rgb(24, 222, 195),rgb(23, 201, 106))",
         backgroundSize: "200% 200%",
         padding: "4px",
-        width: "250px"
+        width: "fit-content"
       }}
     >
       {/* Inner content container */}
-      <div className="bg-white p-6 rounded-lg shadow-md">{children}</div>
+      <div style={{ backgroundColor: "transparent", padding: 0, borderRadius: "4px" }}>{children}</div>
     </motion.div>
   );
 };
