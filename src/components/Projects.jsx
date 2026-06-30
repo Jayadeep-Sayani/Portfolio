@@ -1,122 +1,197 @@
-import React, { useState } from 'react'
+import { SectionHeader } from './SectionHeader'
+import { Reveal } from './Reveal'
 
-export const Projects = () => {
-  const [expanded, setExpanded] = useState({});
+const projects = [
+  {
+    id: 'nostutta',
+    index: '01',
+    image: '/Portfolio/NoStutta.jpg',
+    alt: 'NoStutta app interface',
+    title: 'NoStutta',
+    meta: 'TELUS AI Hackathon',
+    description:
+      'Practice speaking in a judgment-free space. Real-time cues from Whisper and Gemini for people who stutter.',
+    tech: ['Python', 'Flask', 'Gemini', 'Whisper'],
+    link: 'https://github.com/CodingUser14/Stutter_Support',
+    featured: true,
+    accent: 'hot',
+    podium: { place: '3rd', event: 'TELUS AI' },
+  },
+  {
+    id: 'studybuddies',
+    index: '02',
+    image: '/Portfolio/studybuddies.png',
+    alt: 'StudyBuddies app',
+    title: 'StudyBuddies',
+    meta: 'VikeLabs Buildathon',
+    description:
+      'AI quiz app for elementary students with coins and virtual pets.',
+    tech: ['React', 'OpenAI', 'Node.js'],
+    link: 'https://github.com/PABLO-HACKERS/studybuddies',
+    accent: 'violet',
+    podium: { place: '2nd', event: 'VikeLabs' },
+  },
+  {
+    id: 'absolute-safety',
+    index: '03',
+    image: '/Portfolio/AbsoluteSafety.PNG',
+    alt: 'Absolute Safety map interface',
+    title: 'Absolute Safety',
+    meta: 'Navigation · Course project',
+    description:
+      'Routes through safer streets using custom Dijkstra weights on city graph data.',
+    tech: ['React', 'Python', 'MapLibre'],
+    link: 'https://www.youtube.com/watch?v=eUmAh5nbjgM',
+    accent: 'electric',
+  },
+  {
+    id: 'ai-interview',
+    index: '04',
+    image: '/Portfolio/AI Interview Coach.PNG',
+    alt: 'AI Interview Coach',
+    title: 'AI Interview Coach',
+    meta: 'uOttaHack',
+    description:
+      'Mock interviews with voice AI, body language tracking, and spoken feedback.',
+    tech: ['Python', 'Gemini', 'OpenCV'],
+    link: 'https://lnkd.in/gKPq5rFk',
+    accent: 'hot',
+  },
+  {
+    id: 'scholarlog',
+    index: '05',
+    image: '/Portfolio/ScholarLog.PNG',
+    alt: 'ScholarLog GPA tracker',
+    title: 'ScholarLog',
+    meta: '300+ active students',
+    description:
+      'GPA tracker used by hundreds of students at UVic and beyond.',
+    tech: ['React', 'TypeScript', 'Node.js'],
+    link: 'https://github.com/Jayadeep-Sayani',
+    accent: 'lime',
+  },
+]
 
-  const toggleExpand = (index) => {
-    setExpanded(prev => ({
-      ...prev,
-      [index]: !prev[index]
-    }));
-  };
+const podiumFinishes = projects.filter((p) => p.podium?.place === '2nd' || p.podium?.place === '3rd')
 
-  const projects = [
-    {
-      image: "/Portfolio/ScholarLog.PNG",
-      alt: "ScholarLog",
-      type: "WEB PROJECT",
-      title: "ScholarLog",
-      description: "Empowered 300+ students to track GPAs by developing a web platform through React and Node.js. Designed a user-friendly interface across 10+ pages using TailwindCSS and ShadCN for a smooth experience. Implemented core application logic using JavaScript and TypeScript, improving code maintainability, type safety, and overall development reliability.",
-      tech: ["React", "JavaScript", "TypeScript", "Node.js", "CSS", "TailwindCSS", "ShadCN"],
-      link: "https://github.com",
-      linkText: "View Project →"
-    },
-    {
-      image: "/Portfolio/AbsoluteSafety.PNG",
-      alt: "Absolute Safety",
-      type: "SAFETY PROJECT",
-      title: "Absolute Safety",
-      description: "A safety-first navigation application that analyzes multiple safety factors to route users through non-isolated, well-lit, low crime areas. The system uses Dijkstra's algorithm with custom safety weights prioritizing crime rate, street lighting, and distance. Safety is prioritized over speed, choosing slightly longer routes to avoid high-risk areas. Our mission is to reduce street assaults by empowering people with smarter, safety-first navigation. Navigate with confidence. Arrive safely.",
-      tech: ["React", "Python", "Flask", "MapLibre", "NetworkX", "OpenStreetMap", "Dijkstra's Algorithm"],
-      link: "https://www.youtube.com/watch?v=eUmAh5nbjgM",
-      linkText: "View Demo →"
-    },
-    {
-      image: "/Portfolio/NoStutta.jpg",
-      alt: "NoStutta",
-      type: "HACKATHON PROJECT",
-      title: "NoStutta",
-      description: "A tool designed to help over 70 million people worldwide who live with diagnosed stuttering practice speaking in a safe, judgment-free environment. When a stutter occurs, the tool provides real-time visual cues to slow down and breathe, helping reinforce calm and controlled speech patterns through repetition. The tool offers accessible practice anytime, anywhere, supporting both diagnosed and undiagnosed stutterers with a scalable way to bring therapy-inspired techniques into daily practice.",
-      tech: ["Python", "Flask", "Gemini API", "Whisper"],
-      link: "https://github.com/CodingUser14/Stutter_Support",
-      linkText: "View Project →",
-      achievement: "3rd Place - TELUS AI for Innovation Hackathon"
-    },
-    {
-      image: "/Portfolio/AI Interview Coach.PNG",
-      alt: "AI Interview Coach",
-      type: "HACKATHON PROJECT",
-      title: "AI Interview Coach",
-      description: "Built an AI-powered interview coach at uOttaHack that simulates real interview pressure and provides actionable, personalized feedback. Users enter a target company and job description, and Gemini generates tailored interview questions. The system features a live mock interview with an AI interviewer powered by ElevenLabs for human-like voice interaction. Real-time performance analysis includes body language and eye contact tracking with OpenCV, plus speech behavior analysis using AssemblyAI. All signals are scored and fed into Gemini to generate detailed feedback, delivered both visually and verbally.",
-      tech: ["Python", "Flask", "Gemini", "ElevenLabs", "OpenCV", "AssemblyAI", "Sentry"],
-      link: "https://lnkd.in/gKPq5rFk",
-      linkText: "View Project →"
-    },
-    {
-      image: "/Portfolio/studybuddies.png",
-      alt: "StudyBuddies",
-      type: "A.I. PROJECT",
-      title: "StudyBuddies",
-      description: "Aimed towards elementary school students, the app provides a fun and interesting way to test your knowledge. You just have to input a topic as the prompt and the app connects to OpenAI API for some multiple choice questions. You can recieve coins for completing quizzes, and even buy pets!",
-      tech: ["React", "OpenAI API", "Node.js", "Vite", "Git"],
-      link: "https://github.com/PABLO-HACKERS/studybuddies",
-      linkText: "View Project →",
-      achievement: "2nd Place - VikeLabs Hackathon"
-    }
-  ];
+function PodiumBadge({ podium, large = false }) {
+  const medal = podium.place === '2nd' ? '🥈' : podium.place === '3rd' ? '🥉' : null
 
   return (
-    <div className='projects' id="projects">
-      <h1>My Works</h1>
-      <div className="line-with-diamond">
-        <div className="diamond"></div>
+    <div className={`work__podium-badge${large ? ' work__podium-badge--lg' : ''}${podium.hackathon ? ' work__podium-badge--hackathon' : ''}`}>
+      {medal && <span className="work__podium-medal" aria-hidden="true">{medal}</span>}
+      <span className="work__podium-place">{podium.place}</span>
+      <span className="work__podium-event">{podium.event}</span>
+    </div>
+  )
+}
+
+function ProjectTile({ project }) {
+  return (
+    <a
+      href={project.link}
+      target="_blank"
+      rel="noreferrer"
+      className={`work__tile${project.featured ? ' work__tile--featured' : ''} work__tile--${project.accent}`}
+    >
+      <div className="work__tile-border" aria-hidden="true" />
+      <div className="work__tile-media">
+        <img
+          src={project.image}
+          alt={project.alt}
+          loading={project.featured ? 'eager' : 'lazy'}
+        />
+        <div className="work__tile-scrim" aria-hidden="true" />
       </div>
-      <div className="projects-list-container">
-        {projects.map((project, index) => (
-          <div key={index} className={`project-item ${index % 2 === 1 ? 'reverse' : ''}`}>
-            <div className="project-image-wrapper">
-              <img src={project.image} alt={project.alt} />
-            </div>
-            <div className="project-content">
-              <div className="project-header">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-                  <div className="project-type-badge">{project.type}</div>
-                  {project.achievement && (
-                    <div className="project-achievement-badge">
-                      ⭐ {project.achievement}
-                    </div>
-                  )}
+
+      {project.podium && (
+        <PodiumBadge podium={project.podium} large={project.featured} />
+      )}
+
+      <div className="work__tile-content">
+        <div className="work__tile-top">
+          <span className="work__tile-index">{project.index}</span>
+          <span className="work__tile-meta">{project.meta}</span>
+        </div>
+
+        <h3 className="work__tile-title">
+          {project.title}
+          <span className="work__tile-ext" aria-hidden="true">↗</span>
+        </h3>
+
+        <p className="work__tile-desc">{project.description}</p>
+
+        <ul className="work__tile-tech" aria-label="Technologies used">
+          {project.tech.map((t) => (
+            <li key={t}>{t}</li>
+          ))}
+        </ul>
+
+        <span className="work__tile-cta">
+          Open project <span aria-hidden="true">→</span>
+        </span>
+      </div>
+    </a>
+  )
+}
+
+export function Projects() {
+  const featured = projects.find((p) => p.featured)
+  const mosaic = projects.filter((p) => !p.featured)
+
+  return (
+    <section className="work" id="projects">
+      <span className="work__watermark" aria-hidden="true">WORK</span>
+      <div className="work__grid-lines" aria-hidden="true" />
+
+      <div className="work__inner">
+        <Reveal>
+          <SectionHeader index="04 · Work" title="Selected projects">
+            Hackathon builds and tools people actually use.
+          </SectionHeader>
+        </Reveal>
+
+        <Reveal delay={60}>
+          <div className="work__podiums" role="list" aria-label="Hackathon podium finishes">
+            {podiumFinishes.map((p) => (
+              <div key={p.id} className="work__podiums-card" role="listitem">
+                <span className="work__podiums-medal" aria-hidden="true">
+                  {p.podium.place === '2nd' ? '🥈' : '🥉'}
+                </span>
+                <div>
+                  <p className="work__podiums-place">{p.podium.place} Place</p>
+                  <p className="work__podiums-event">{p.podium.event}</p>
+                  <p className="work__podiums-project">{p.title}</p>
                 </div>
-                <h3 className="project-title">{project.title}</h3>
               </div>
-              <div className="project-description-wrapper">
-                <p className={`project-description ${expanded[index] ? 'expanded' : 'collapsed'}`}>
-                  {project.description}
-                </p>
-                <button 
-                  className="project-read-more"
-                  onClick={() => toggleExpand(index)}
-                >
-                  {expanded[index] ? 'Read less' : 'Read more'}
-                </button>
-              </div>
-              <div className="project-footer">
-                <div className="project-tech-stacks">
-                  <div className="project-tech-stacks-label">Technologies:</div>
-                  <div className="project-tech-stacks-tags">
-                    {project.tech.map((tech, techIndex) => (
-                      <span key={techIndex} className="project-tech-tag">{tech}</span>
-                    ))}
-                  </div>
-                </div>
-                <a href={project.link} target="_blank" rel="noreferrer" className="project-link">
-                  {project.linkText}
-                </a>
+            ))}
+            <div className="work__podiums-card work__podiums-card--stat" role="listitem">
+              <span className="work__podiums-stat">3+</span>
+              <div>
+                <p className="work__podiums-place">Hackathons</p>
+                <p className="work__podiums-event">shipped under pressure</p>
               </div>
             </div>
           </div>
-        ))}
+        </Reveal>
+
+        <Reveal delay={100}>
+          <ProjectTile project={featured} />
+        </Reveal>
+
+        <p className="work__mosaic-hint" aria-hidden="true">
+          <span>Swipe for more</span>
+          <span className="work__mosaic-hint-arrow">→</span>
+        </p>
+
+        <div className="work__mosaic">
+          {mosaic.map((project, i) => (
+            <Reveal key={project.id} delay={140 + i * 50} className="work__mosaic-cell">
+              <ProjectTile project={project} />
+            </Reveal>
+          ))}
+        </div>
       </div>
-  </div>
+    </section>
   )
 }

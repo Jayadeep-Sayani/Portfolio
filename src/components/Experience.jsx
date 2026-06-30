@@ -1,88 +1,327 @@
-import React from "react";
-import { useMediaQuery } from "@mui/material";
-import { Code, Palette } from "lucide-react";
+import { useEffect, useRef, useState } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { SectionHeader } from './SectionHeader'
+import { Reveal } from './Reveal'
 
-export const Experience = () => {
-  const isMobile = useMediaQuery("(max-width:768px)");
+const founder = {
+  company: 'BrightSide Studio',
+  companyUrl: 'https://brightside-studio.ca',
+  role: 'Founder',
+  period: '2025 · Present',
+  lead: 'My studio. My clients. My standards.',
+  bullets: [
+    'Built BrightSide Studio from the ground up: branding, delivery, and every client relationship.',
+    'Ran advertising, finances, and communications while shipping production sites end to end.',
+    'Web design, UX, SEO, and development under one roof.',
+  ],
+  tags: ['Web design', 'UX', 'SEO', 'WordPress', 'Client relations'],
+}
 
-  const experiences = [
-    {
-      date: "MAY 2025 - AUG 2025",
-      role: "Full Stack Developer Intern",
-      company: "CareLife",
-      location: "Remote, Canada",
-      description: [
-        "Developed responsive web pages for the Care Life Portal using Angular and Ionic, enhancing client need tracking and user accessibility.",
-        "Developed along with the backend team to create a JavaScript automation tool using REST APIs and file system operations to monitor 200+ fall detection cameras, which improved real-time incident tracking and reduced manual monitoring efforts.",
-        "Enhanced system reliability by flagging cameras within 2 minutes of failure through notifications in JavaScript.",
-        "Participated in sprint planning and code reviews using Agile workflow."
-      ],
-      skills: ["Angular", "Ionic", "JavaScript", "REST APIs", "Agile", "File System Operations"],
-      icon: Code,
-    },
-    {
-      date: "JAN 2025 - DEC 2025",
-      role: "Freelance Website Designer",
-      company: "Self-Employed",
-      location: "Remote",
-      description: [
-        "Designed and developed websites for UNUHR Inc., including web page creation, SEO optimization, and implementation of design principles aligned with client requirements.",
-        "Created and maintained website for Jamaican Canadian Bar Association (JCBA), ensuring responsive design and optimal user experience.",
-        "Collaborated with clients to understand their vision and translate requirements into functional, visually appealing websites."
-      ],
-      skills: ["WordPress", "WordPress Plugins", "SEO", "Web Design", "Client Relations"],
-      icon: Palette,
-    },
-  ];
+const carelifeRoles = [
+  {
+    id: 'carelife-contractor',
+    accent: 'hot',
+    current: true,
+    role: 'Software Developer Contractor',
+    period: 'May 2026 · Present',
+    bullets: [
+      'RSSI wander alert system with BLE beacons, IoT gateways, and MQTT telemetry.',
+      'Python monitoring with NumPy and datetime analysis for beacon patterns and wander detection.',
+      'BLE performance testing in high- and low-density environments.',
+    ],
+    tags: ['Python', 'MQTT', 'BLE', 'IoT', 'NumPy'],
+  },
+  {
+    id: 'carelife-intern',
+    accent: 'electric',
+    role: 'Full Stack Developer Intern',
+    period: 'May 2025 · Aug 2025',
+    bullets: [
+      'Responsive Care Life Portal pages with Angular and Ionic.',
+      'JS automation tool monitoring 200+ fall-detection cameras via REST APIs.',
+    ],
+    tags: ['Angular', 'Ionic', 'JavaScript', 'REST APIs'],
+  },
+]
+
+const clientProjects = [
+  {
+    id: 'unuhr',
+    accent: 'violet',
+    company: 'UNUHR Inc.',
+    role: 'Client project',
+    via: 'BrightSide Studio',
+    period: '2025',
+    rating: '5★ review',
+    bullets: [
+      'Full website design and build with SEO and UX tailored to client goals.',
+      'Ongoing support, client communication, and launch strategy.',
+    ],
+    tags: ['Web design', 'SEO', 'UX'],
+  },
+  {
+    id: 'jcba',
+    accent: 'lime',
+    company: 'Jamaican Canadian Bar Association',
+    short: 'JCBA',
+    role: 'Client project',
+    via: 'BrightSide Studio',
+    period: '2025',
+    rating: '5★ review',
+    bullets: [
+      'End-to-end site design, development, and maintenance for the association.',
+      'Responsive layout, content structure, and search visibility.',
+    ],
+    tags: ['WordPress', 'Web design', 'SEO'],
+  },
+]
+
+const entries = [
+  { key: 'founder', index: '01', accent: 'hot', kind: 'founder' },
+  { key: 'contractor', index: '02', accent: 'hot', kind: 'carelife', data: carelifeRoles[0] },
+  { key: 'intern', index: '03', accent: 'electric', kind: 'carelife', data: carelifeRoles[1] },
+  { key: 'unuhr', index: '04', accent: 'violet', kind: 'client', data: clientProjects[0] },
+  { key: 'jcba', index: '05', accent: 'lime', kind: 'client', data: clientProjects[1] },
+]
+
+function useReducedMotion() {
+  const [reduced, setReduced] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const update = () => setReduced(mq.matches)
+    update()
+    mq.addEventListener('change', update)
+    return () => mq.removeEventListener('change', update)
+  }, [])
+
+  return reduced
+}
+
+function useDesktopLedger() {
+  const [enabled, setEnabled] = useState(
+    () => typeof window !== 'undefined' && window.matchMedia('(min-width: 900px)').matches,
+  )
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 900px)')
+    const update = () => setEnabled(mq.matches)
+    update()
+    mq.addEventListener('change', update)
+    return () => mq.removeEventListener('change', update)
+  }, [])
+
+  return enabled
+}
+
+function FounderCard() {
+  return (
+    <article className="exp__founder">
+      <div className="exp__founder-border" aria-hidden="true" />
+      <div className="exp__founder-glow" aria-hidden="true" />
+
+      <div className="exp__founder-top">
+        <span className="exp__founder-badge">Founder</span>
+        <time className="exp__period">{founder.period}</time>
+      </div>
+
+      <h3 className="exp__founder-studio">
+        <a href={founder.companyUrl} target="_blank" rel="noreferrer">
+          {founder.company}
+          <span aria-hidden="true"> ↗</span>
+        </a>
+      </h3>
+
+      <p className="exp__founder-lead">{founder.lead}</p>
+
+      <div className="exp__founder-body">
+        <ul className="exp__bullets">
+          {founder.bullets.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+
+        <div className="exp__founder-aside">
+          <p className="exp__founder-aside-label">Also shipped for</p>
+          <div className="exp__founder-clients">
+            <span className="exp__stars-pill">UNUHR · 5★</span>
+            <span className="exp__stars-pill">JCBA · 5★</span>
+          </div>
+          <ul className="exp__tags">
+            {founder.tags.map((tag) => (
+              <li key={tag}>{tag}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </article>
+  )
+}
+
+function CareLifeCard({ entry }) {
+  return (
+    <article className={`exp__card exp__card--${entry.accent}`}>
+      <p className="exp__org">CareLife</p>
+      <div className="exp__card-meta">
+        <time className="exp__period">{entry.period}</time>
+        {entry.current && <span className="exp__badge exp__badge--now">Now</span>}
+      </div>
+      <h3 className="exp__role">{entry.role}</h3>
+      <p className="exp__loc">Remote, Canada</p>
+
+      <ul className="exp__bullets">
+        {entry.bullets.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+
+      <ul className="exp__tags">
+        {entry.tags.map((tag) => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+    </article>
+  )
+}
+
+function ClientCard({ project }) {
+  return (
+    <article className={`exp__card exp__card--${project.accent} exp__card--client`}>
+      <div className="exp__client-top">
+        <span className="exp__stars-badge">{project.rating}</span>
+        <span className="exp__via">via {project.via}</span>
+      </div>
+      <h3 className="exp__role">{project.short ?? project.company}</h3>
+      {project.short && <p className="exp__client-full">{project.company}</p>}
+      <p className="exp__loc">
+        {project.role} · {project.period}
+      </p>
+
+      <ul className="exp__bullets">
+        {project.bullets.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+
+      <ul className="exp__tags">
+        {project.tags.map((tag) => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+    </article>
+  )
+}
+
+function EntryCard({ entry }) {
+  if (entry.kind === 'founder') return <FounderCard />
+  if (entry.kind === 'carelife') return <CareLifeCard entry={entry.data} />
+  return <ClientCard project={entry.data} />
+}
+
+function LedgerEntry({ entry, side, delay }) {
+  return (
+    <Reveal delay={delay} className={`exp__entry exp__entry--${side} exp__entry--${entry.accent}`}>
+      {side === 'left' && (
+        <div className="exp__entry-card">
+          <EntryCard entry={entry} />
+        </div>
+      )}
+
+      <div className="exp__entry-axis" aria-hidden="true">
+        <span className="exp__entry-index">{entry.index}</span>
+        <span className={`exp__entry-dot exp__entry-dot--${entry.accent}`} />
+      </div>
+
+      {side === 'right' && (
+        <div className="exp__entry-card">
+          <EntryCard entry={entry} />
+        </div>
+      )}
+    </Reveal>
+  )
+}
+
+function ExperienceLedger({ reducedMotion }) {
+  const ledgerRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ledgerRef,
+    offset: ['start 0.85', 'end 0.15'],
+  })
+  const spineScale = useTransform(scrollYProgress, [0, 1], [0, 1])
+
+  const timelineEntries = entries.filter((e) => e.kind !== 'founder')
+  const founderEntry = entries.find((e) => e.kind === 'founder')
 
   return (
-    <div className="experience" id="experience">
-      <h1>Experience</h1>
-      <div className="line-with-diamond">
-        <div className="diamond"></div>
+    <div className="exp__ledger" ref={ledgerRef}>
+      <div className="exp__spine" aria-hidden="true">
+        <div className="exp__spine-track" />
+        {reducedMotion ? (
+          <div className="exp__spine-fill exp__spine-fill--static" />
+        ) : (
+          <motion.div className="exp__spine-fill" style={{ scaleY: spineScale }} />
+        )}
       </div>
 
-      <div className="experience-cards-container">
-        {experiences.map((exp, index) => {
-          const IconComponent = exp.icon;
-          return (
-            <div key={index} className="experience-card">
-              <div className="experience-card-icon">
-                <IconComponent size={24} />
-              </div>
-              <div className="experience-card-content">
-                <div className="experience-role">{exp.role}</div>
-                <div className="experience-company">{exp.company}</div>
-                {exp.location && (
-                  <div className="experience-location">{exp.location}</div>
-                )}
-                <div className="experience-date">{exp.date}</div>
-                
-                {exp.description && (
-                  <div className="experience-description">
-                    <ul className="experience-bullets">
-                      {exp.description.map((item, idx) => (
-                        <li key={idx}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                
-                {exp.skills && (
-                  <div className="experience-skills">
-                    <div className="experience-skills-label">Technologies:</div>
-                    <div className="experience-skills-tags">
-                      {exp.skills.map((skill, idx) => (
-                        <span key={idx} className="experience-skill-tag">{skill}</span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          );
-        })}
+      {founderEntry && (
+        <Reveal className="exp__founder-wrap">
+          <EntryCard entry={founderEntry} />
+        </Reveal>
+      )}
+
+      <div className="exp__timeline">
+        {timelineEntries.map((entry, i) => (
+          <LedgerEntry
+            key={entry.key}
+            entry={entry}
+            side={i % 2 === 0 ? 'left' : 'right'}
+            delay={80 + i * 60}
+          />
+        ))}
       </div>
     </div>
-  );
-};
+  )
+}
+
+function ExperienceList() {
+  return (
+    <div className="exp__list">
+      {entries.map((entry, i) => (
+        <Reveal key={entry.key} delay={i * 40}>
+          <div className="exp__list-item">
+            <EntryCard entry={entry} />
+          </div>
+        </Reveal>
+      ))}
+    </div>
+  )
+}
+
+export function Experience() {
+  const reducedMotion = useReducedMotion()
+  const ledgerEnabled = useDesktopLedger()
+
+  return (
+    <section className="exp" id="experience">
+      <span className="exp__watermark" aria-hidden="true">
+        EXP
+      </span>
+      <div className="exp__glow exp__glow--hot" aria-hidden="true" />
+      <div className="exp__glow exp__glow--violet" aria-hidden="true" />
+
+      <div className="exp__inner">
+        <Reveal>
+          <SectionHeader index="03 · Experience" title="Where I've shipped">
+            Production systems at CareLife, a studio I founded, and client work with perfect reviews.
+          </SectionHeader>
+        </Reveal>
+
+        {ledgerEnabled ? (
+          <ExperienceLedger reducedMotion={reducedMotion} />
+        ) : (
+          <ExperienceList />
+        )}
+      </div>
+    </section>
+  )
+}

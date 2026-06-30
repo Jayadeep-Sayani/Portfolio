@@ -1,0 +1,70 @@
+/* Global atmosphere — grain + ambient mesh */
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.mesh-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.mesh-bg__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.35;
+  animation: mesh-drift var(--duration-ambient) ease-in-out infinite alternate;
+}
+
+.mesh-bg__orb--hot {
+  width: 50vw;
+  height: 50vw;
+  max-width: 600px;
+  max-height: 600px;
+  top: -10%;
+  right: -10%;
+  background: var(--color-hot);
+}
+
+.mesh-bg__orb--violet {
+  width: 40vw;
+  height: 40vw;
+  max-width: 500px;
+  max-height: 500px;
+  bottom: 10%;
+  left: -15%;
+  background: var(--color-violet);
+  animation-delay: -4s;
+}
+
+.mesh-bg__orb--electric {
+  width: 30vw;
+  height: 30vw;
+  max-width: 400px;
+  max-height: 400px;
+  top: 40%;
+  left: 30%;
+  background: var(--color-electric);
+  opacity: 0.2;
+  animation-delay: -2s;
+}
+
+@keyframes mesh-drift {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(30px, -20px) scale(1.08); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mesh-bg__orb {
+    animation: none;
+  }
+}

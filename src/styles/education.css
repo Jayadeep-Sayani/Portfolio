@@ -1,0 +1,429 @@
+/* ─── Education ─── */
+
+.edu {
+  position: relative;
+  z-index: 1;
+  padding: var(--section-padding-y) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.edu__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--section-padding-x);
+}
+
+.edu .section-head {
+  margin-bottom: var(--space-8);
+}
+
+/* GPA / highlights */
+.edu__highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin-bottom: var(--space-9);
+}
+
+.edu__highlight {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4) var(--space-3);
+  text-align: center;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.edu__highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-signature);
+  opacity: 0.7;
+}
+
+.edu__highlight-value {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-extrabold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+  line-height: 1.1;
+}
+
+.edu__highlight-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Major tracks — equal height pair */
+.edu__tracks {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.edu__track-wrap {
+  height: 100%;
+  min-height: 0;
+}
+
+.edu__track {
+  height: 100%;
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.edu__track::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+
+.edu__track--cs::before {
+  background: var(--color-hot);
+}
+
+.edu__track--math::before {
+  background: var(--color-electric);
+}
+
+.edu__track-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.edu__track-code {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-extrabold);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1;
+}
+
+.edu__track--cs .edu__track-code {
+  color: var(--color-hot);
+}
+
+.edu__track--math .edu__track-code {
+  color: var(--color-electric);
+}
+
+.edu__track-year {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-lime);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid rgba(200, 245, 96, 0.25);
+  border-radius: var(--radius-full);
+}
+
+.edu__track-title {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-5);
+}
+
+.edu__course-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.edu__course-list li {
+  position: relative;
+  padding-left: var(--space-4);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+}
+
+.edu__course-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+}
+
+.edu__track--cs .edu__course-list li::before {
+  background: var(--color-hot);
+  opacity: 0.7;
+}
+
+.edu__track--math .edu__course-list li::before {
+  background: var(--color-electric);
+  opacity: 0.7;
+}
+
+/* Excellence — full-width strip between majors and involvement */
+.edu__excellence {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-10);
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--radius-md);
+  background: rgba(200, 245, 96, 0.04);
+  border: 1px solid rgba(200, 245, 96, 0.18);
+}
+
+.edu__excellence-ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(200, 245, 96, 0.08);
+  border: 2px solid rgba(200, 245, 96, 0.35);
+  box-shadow: 0 0 20px rgba(200, 245, 96, 0.12);
+}
+
+.edu__excellence-score {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-extrabold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-lime);
+  line-height: 1;
+}
+
+.edu__excellence-title {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-lime);
+  margin-bottom: var(--space-1);
+}
+
+.edu__excellence-desc {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text-secondary);
+}
+
+/* Campus involvement — stacked: featured Eng Soc, then Game Dev row */
+.edu__involve {
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.edu__involve-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.edu__org {
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.edu__org::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+
+.edu__org--eng::before {
+  background: var(--color-violet);
+}
+
+.edu__org--gamedev::before {
+  background: var(--color-hot);
+}
+
+.edu__org-head {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.edu__org--gamedev .edu__org-head {
+  margin-bottom: var(--space-4);
+}
+
+.edu__org-code {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-extrabold);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1;
+  padding-top: 2px;
+}
+
+.edu__org--eng .edu__org-code {
+  color: var(--color-violet);
+}
+
+.edu__org--gamedev .edu__org-code {
+  color: var(--color-hot);
+}
+
+.edu__org-name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-extrabold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text);
+  line-height: var(--leading-snug);
+}
+
+.edu__org-sub {
+  margin-top: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.edu__roles {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.edu__role {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.edu__role:first-child {
+  padding-top: 0;
+}
+
+.edu__role:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.edu__role-title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.edu__role-detail {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text-secondary);
+}
+
+.edu__activity-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.edu__activity-item {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--color-text-secondary);
+  background: rgba(255, 60, 172, 0.04);
+  border: 1px solid rgba(255, 60, 172, 0.12);
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .edu__tracks {
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+
+  .edu__role {
+    grid-template-columns: 10.5rem 1fr;
+    gap: var(--space-4);
+    align-items: baseline;
+  }
+
+  .edu__org--gamedev {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .edu__org--gamedev .edu__org-head {
+    margin-bottom: 0;
+    min-width: 11rem;
+  }
+
+  .edu__activity-grid {
+    grid-template-columns: repeat(3, 1fr);
+    flex: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .edu__highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .edu__highlight {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edu__excellence-ring {
+    box-shadow: none;
+  }
+}

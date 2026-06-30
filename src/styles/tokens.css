@@ -1,0 +1,97 @@
+:root {
+  /* ─── Void base ─── */
+  --color-bg: #050508;
+  --color-bg-elevated: #0c0c14;
+  --color-surface: #14141f;
+  --color-surface-glass: rgba(12, 12, 20, 0.72);
+
+  /* ─── Chromatic spectrum ─── */
+  --color-hot: #ff3cac;
+  --color-violet: #784ba0;
+  --color-electric: #2b86c5;
+  --color-lime: #c8f560;
+
+  --gradient-signature: linear-gradient(135deg, #ff3cac 0%, #784ba0 50%, #2b86c5 100%);
+  --gradient-signature-animated: linear-gradient(
+    135deg,
+    #ff3cac,
+    #784ba0,
+    #2b86c5,
+    #ff3cac
+  );
+
+  /* ─── Glow ─── */
+  --glow-hot: 0 0 40px rgba(255, 60, 172, 0.35);
+  --glow-violet: 0 0 60px rgba(120, 75, 160, 0.25);
+  --glow-soft: 0 0 80px rgba(43, 134, 197, 0.15);
+
+  /* ─── Text ─── */
+  --color-text: #eeeef5;
+  --color-text-secondary: #a8a8bc;
+  --color-text-muted: #6e6e82;
+  --color-text-inverse: #050508;
+
+  /* ─── Structure ─── */
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-glow: rgba(255, 60, 172, 0.25);
+
+  /* ─── Typography ─── */
+  --font-display: 'Syne', system-ui, sans-serif;
+  --font-body: 'Sora', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --text-xs: 0.6875rem;
+  --text-sm: 0.8125rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: clamp(1.25rem, 2.5vw, 1.625rem);
+  --text-2xl: clamp(1.75rem, 4vw, 2.5rem);
+  --text-3xl: clamp(2.25rem, 5vw, 3.25rem);
+  --text-hero: clamp(2.25rem, 5.5vw, 3.75rem);
+  --text-menu: clamp(1.5rem, 4.5vw, 2.25rem);
+
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  --tracking-tight: -0.03em;
+  --tracking-wide: 0.12em;
+
+  --leading-tight: 1.05;
+  --leading-snug: 1.2;
+  --leading-normal: 1.6;
+
+  /* ─── Spacing ─── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 64px;
+  --space-10: 80px;
+  --space-11: 96px;
+  --space-12: 120px;
+
+  /* ─── Layout ─── */
+  --container-max: 1140px;
+  --section-padding-x: clamp(20px, 5vw, 56px);
+  --section-padding-y: clamp(96px, 14vw, 160px);
+  --navbar-height: 72px;
+  --nav-offset: 100px;
+
+  /* ─── Radius ─── */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* ─── Motion ─── */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 200ms;
+  --duration-base: 400ms;
+  --duration-slow: 700ms;
+  --duration-ambient: 8s;
+}
