@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="JS">
+  <defs>
+    <linearGradient id="sig" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff3cac" />
+      <stop offset="50%" stop-color="#784ba0" />
+      <stop offset="100%" stop-color="#2b86c5" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#ff3cac" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#050508" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="32" height="32" rx="8" fill="#050508" />
+  <rect width="32" height="32" rx="8" fill="url(#glow)" />
+  <rect x="1.25" y="1.25" width="29.5" height="29.5" rx="7" fill="none" stroke="url(#sig)" stroke-width="1.5" />
+  <text
+    x="16"
+    y="21.5"
+    fill="url(#sig)"
+    font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
+    font-size="11.5"
+    font-weight="800"
+    letter-spacing="-0.6"
+    text-anchor="middle"
+  >JS</text>
+</svg>
