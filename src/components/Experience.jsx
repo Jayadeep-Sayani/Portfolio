@@ -50,7 +50,7 @@ const clientProjects = [
     accent: 'violet',
     company: 'UNUHR Inc.',
     role: 'Client project',
-    via: 'BrightSide Studio',
+    via: 'Riipen',
     period: '2025',
     rating: '5★ review',
     bullets: [
