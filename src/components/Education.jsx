@@ -59,7 +59,7 @@ export function Education() {
     <section className="edu" id="education">
       <div className="edu__inner">
         <Reveal>
-          <SectionHeader index="05 · Education" title="University of Victoria">
+          <SectionHeader index="04 · Education" title="University of Victoria">
             3rd year Computer Science, 2nd year Mathematics.
           </SectionHeader>
         </Reveal>

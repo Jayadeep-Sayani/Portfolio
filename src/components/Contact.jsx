@@ -52,7 +52,7 @@ export function Contact() {
       <div className="contact__inner">
         <Reveal>
           <header className="contact__head">
-            <p className="contact__index">06 · Contact</p>
+            <p className="contact__index">05 · Contact</p>
             <h2 className="contact__title">
               Don&apos;t leave
               <span className="contact__title-accent"> empty-handed</span>.

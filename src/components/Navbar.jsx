@@ -5,12 +5,11 @@ const LINKS = [
   { index: '01', label: 'Work', href: '#projects' },
   { index: '02', label: 'Experience', href: '#experience' },
   { index: '03', label: 'Skills', href: '#skills' },
-  { index: '04', label: 'About', href: '#about' },
-  { index: '05', label: 'Education', href: '#education' },
-  { index: '06', label: 'Contact', href: '#contact' },
+  { index: '04', label: 'Education', href: '#education' },
+  { index: '05', label: 'Contact', href: '#contact' },
 ]
 
-const SECTIONS = ['home', 'projects', 'experience', 'skills', 'about', 'education', 'contact']
+const SECTIONS = ['home', 'projects', 'experience', 'skills', 'education', 'contact']
 
 const menuVariants = {
   hidden: { opacity: 0 },
