@@ -57,7 +57,7 @@ export function Skills() {
 
       <div className="skills__inner">
         <Reveal>
-          <SectionHeader index="05 · Skills" title="Toolkit">
+          <SectionHeader index="03 · Skills" title="Toolkit">
             Languages and tools I reach for most often.
           </SectionHeader>
         </Reveal>

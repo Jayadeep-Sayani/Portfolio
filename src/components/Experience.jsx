@@ -311,7 +311,7 @@ export function Experience() {
 
       <div className="exp__inner">
         <Reveal>
-          <SectionHeader index="03 · Experience" title="Where I've shipped">
+          <SectionHeader index="02 · Experience" title="Where I've shipped">
             Production systems at CareLife, a studio I founded, and client work with perfect reviews.
           </SectionHeader>
         </Reveal>

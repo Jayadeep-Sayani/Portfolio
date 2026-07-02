@@ -22,11 +22,11 @@ function App() {
 
       <main>
         <Hero />
+        <Projects />
+        <Experience />
+        <Skills />
         <About />
         <Education />
-        <Experience />
-        <Projects />
-        <Skills />
         <Contact />
       </main>
 

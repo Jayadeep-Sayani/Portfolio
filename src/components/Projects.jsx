@@ -146,7 +146,7 @@ export function Projects() {
 
       <div className="work__inner">
         <Reveal>
-          <SectionHeader index="04 · Work" title="Selected projects">
+          <SectionHeader index="01 · Work" title="Selected projects">
             Hackathon builds and tools people actually use.
           </SectionHeader>
         </Reveal>

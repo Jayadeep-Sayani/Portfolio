@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const LINKS = [
-  { index: '01', label: 'About', href: '#about' },
-  { index: '02', label: 'Education', href: '#education' },
-  { index: '03', label: 'Experience', href: '#experience' },
-  { index: '04', label: 'Work', href: '#projects' },
-  { index: '05', label: 'Skills', href: '#skills' },
+  { index: '01', label: 'Work', href: '#projects' },
+  { index: '02', label: 'Experience', href: '#experience' },
+  { index: '03', label: 'Skills', href: '#skills' },
+  { index: '04', label: 'About', href: '#about' },
+  { index: '05', label: 'Education', href: '#education' },
   { index: '06', label: 'Contact', href: '#contact' },
 ]
 
-const SECTIONS = ['home', 'about', 'education', 'experience', 'projects', 'skills', 'contact']
+const SECTIONS = ['home', 'projects', 'experience', 'skills', 'about', 'education', 'contact']
 
 const menuVariants = {
   hidden: { opacity: 0 },

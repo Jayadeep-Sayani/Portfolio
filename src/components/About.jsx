@@ -9,7 +9,7 @@ export function About() {
     <section className="about" id="about">
       <div className="about__inner">
         <Reveal>
-          <SectionHeader index="01 · About" title="A bit about me">
+          <SectionHeader index="04 · About" title="A bit about me">
             Who I am outside the project list.
           </SectionHeader>
         </Reveal>
