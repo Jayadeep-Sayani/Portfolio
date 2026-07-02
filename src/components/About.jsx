@@ -1,7 +1,7 @@
 import { SectionHeader } from './SectionHeader'
 import { Reveal } from './Reveal'
 
-/* Different shot from the hero — avoids repeating about_me_pic */
+/* Different shot from the hero - avoids repeating about_me_pic */
 const PHOTO = '/Portfolio/Portrait.jpg'
 
 export function About() {

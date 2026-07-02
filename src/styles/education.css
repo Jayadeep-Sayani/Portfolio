@@ -67,7 +67,7 @@
   color: var(--color-text-muted);
 }
 
-/* Major tracks — equal height pair */
+/* Major tracks - equal height pair */
 .edu__tracks {
   display: grid;
   grid-template-columns: 1fr;
@@ -186,7 +186,7 @@
   opacity: 0.7;
 }
 
-/* Excellence — full-width strip between majors and involvement */
+/* Excellence - full-width strip between majors and involvement */
 .edu__excellence {
   display: flex;
   align-items: center;
@@ -235,7 +235,7 @@
   color: var(--color-text-secondary);
 }
 
-/* Campus involvement — stacked: featured Eng Soc, then Game Dev row */
+/* Campus involvement - stacked: featured Eng Soc, then Game Dev row */
 .edu__involve {
   padding-top: var(--space-8);
   border-top: 1px solid var(--color-border);

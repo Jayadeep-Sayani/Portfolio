@@ -101,7 +101,8 @@
 .exp__founder-wrap {
   position: relative;
   z-index: 1;
-  margin-bottom: var(--space-10);
+  max-width: 44rem;
+  margin: 0 auto var(--space-8);
 }
 
 .exp__timeline {
@@ -189,13 +190,12 @@
 /* ─── Founder (featured) ─── */
 .exp__founder {
   position: relative;
-  padding: clamp(var(--space-7), 5vw, var(--space-10));
-  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--radius-md);
   background: rgba(5, 5, 8, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   overflow: hidden;
-  min-height: 280px;
 }
 
 .exp__founder-border {
@@ -231,15 +231,15 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-3);
-  margin-bottom: var(--space-4);
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
   position: relative;
   z-index: 1;
 }
 
 .exp__founder-badge {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
   font-weight: var(--weight-extrabold);
   letter-spacing: var(--tracking-tight);
   line-height: 1;
@@ -253,10 +253,10 @@
 
 .exp__founder-studio {
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-size: clamp(1rem, 2vw, 1.25rem);
   font-weight: var(--weight-extrabold);
   letter-spacing: var(--tracking-tight);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-1);
   position: relative;
   z-index: 1;
 }
@@ -272,13 +272,13 @@
 }
 
 .exp__founder-lead {
-  font-size: var(--text-lg);
+  font-size: var(--text-sm);
   font-weight: 500;
   color: var(--color-text-secondary);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-4);
   position: relative;
   z-index: 1;
-  max-width: 32rem;
+  max-width: 28rem;
 }
 
 .exp__founder-body {
@@ -286,11 +286,11 @@
   z-index: 1;
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-6);
+  gap: var(--space-4);
 }
 
 .exp__founder-aside {
-  padding: var(--space-5);
+  padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--color-border);
@@ -302,14 +302,14 @@
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
   color: var(--color-text-muted);
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
 }
 
 .exp__founder-clients {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
 }
 
 .exp__stars-pill {
@@ -738,8 +738,9 @@
 
 @media (min-width: 900px) {
   .exp__founder-body {
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.15fr 0.85fr;
     align-items: start;
+    gap: var(--space-5);
   }
 
   .exp__card {

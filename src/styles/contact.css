@@ -394,7 +394,7 @@
   margin-bottom: var(--space-6);
 }
 
-/* Stacked email — always inside the box */
+/* Stacked email - always inside the box */
 .contact__email {
   position: relative;
   display: block;
@@ -484,7 +484,7 @@
   margin: 0 auto var(--space-6);
 }
 
-/* CTA — readable body type */
+/* CTA - readable body type */
 .contact__cta {
   position: relative;
   display: inline-flex;

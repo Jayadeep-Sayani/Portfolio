@@ -56,7 +56,7 @@ const reviews = [
     quote:
       'This is the second website project Jayadeep has completed for us, and once again he delivered excellent results. He is professional, responsive, and easy to work with. He took the time to understand our needs and created a modern, user-friendly website that reflects our organization well. His attention to detail, willingness to incorporate feedback, and commitment to quality made the entire process smooth and efficient. We are very pleased with the final product and would highly recommend Jayadeep to anyone looking for a reliable and talented website developer.',
     excerpt:
-      'Professional, responsive, and easy to work with — with sharp attention to detail and a real commitment to incorporating feedback.',
+      'Professional, responsive, and easy to work with, with sharp attention to detail and a real commitment to incorporating feedback.',
     highlights: ['Professional', 'Responsive', 'Detail-oriented', 'Client-focused'],
     accent: 'lime',
   },
@@ -71,7 +71,7 @@ const reviews = [
     quote:
       "We had the pleasure of working with Jayadeep as part of the team that developed our website, and his contributions were invaluable throughout the project. He was professional, collaborative, and highly responsive, always willing to assist and incorporate feedback to ensure the best possible outcome. Jayadeep's attention to detail, technical expertise, and commitment to quality helped make the project a success. We appreciate his hard work and would gladly recommend him to anyone seeking a skilled and dependable web professional.",
     excerpt:
-      'Professional, collaborative, and highly responsive — invaluable on a team where quality and follow-through matter.',
+      'Professional, collaborative, and highly responsive, invaluable on a team where quality and follow-through matter.',
     highlights: ['Collaborative', 'Responsive', 'Technical', 'Dependable'],
     accent: 'violet',
   },
@@ -258,7 +258,7 @@ function ClientCard({ project }) {
         <blockquote className="exp__client-quote">
           <p>"{review.excerpt}"</p>
           <footer>
-            — {review.name}, {review.role} ·{' '}
+            - {review.name}, {review.role} ·{' '}
             <a href={review.orgUrl} target="_blank" rel="noreferrer">
               {review.orgShort}
             </a>
@@ -291,7 +291,7 @@ function ClientTestimonials() {
           <p className="exp__reviews-label">Client feedback</p>
           <h3 className="exp__reviews-title">Trusted by the people I ship for</h3>
           <p className="exp__reviews-lead">
-            Real words from founders and directors — on communication, collaboration, and delivery.
+            Real words from founders and directors on communication, collaboration, and delivery.
           </p>
         </div>
       </Reveal>

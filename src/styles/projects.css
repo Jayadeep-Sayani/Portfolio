@@ -69,7 +69,7 @@
 }
 
 .work__inner {
-  max-width: var(--container-max);
+  max-width: min(1380px, 94vw);
   margin: 0 auto;
   padding: 0 var(--section-padding-x);
 }
@@ -84,7 +84,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-3);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
 }
 
 .work__podiums-card {
@@ -440,25 +440,25 @@
 
 /* Featured tile */
 .work__tile--featured {
-  aspect-ratio: 21 / 9;
-  max-height: 420px;
-  margin-bottom: var(--space-5);
+  aspect-ratio: 5 / 2;
+  max-height: 280px;
+  margin-bottom: var(--space-4);
 }
 
 .work__tile--featured .work__tile-content {
-  padding: var(--space-5) var(--space-6);
-  max-width: 32rem;
+  padding: var(--space-4) var(--space-5);
+  max-width: 28rem;
 }
 
 .work__tile--featured .work__tile-title {
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
 }
 
 .work__tile--featured .work__tile-desc {
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
 }
 
-/* Mosaic — equal 2×2 grid */
+/* Mosaic - equal 2×2 grid */
 .work__mosaic-hint {
   display: flex;
   align-items: center;
@@ -512,7 +512,7 @@
   .work__mosaic {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-5);
+    gap: var(--space-4);
     overflow: visible;
   }
 
@@ -522,7 +522,27 @@
   }
 
   .work__mosaic-cell .work__tile {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (min-width: 1100px) {
+  .work__mosaic {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+  }
+
+  .work__mosaic-cell .work__tile {
+    aspect-ratio: 5 / 3;
+  }
+
+  .work__mosaic-cell .work__tile-content {
+    padding: var(--space-3) var(--space-4);
+    gap: var(--space-1);
+  }
+
+  .work__mosaic-cell .work__tile-desc {
+    -webkit-line-clamp: 1;
   }
 }
 

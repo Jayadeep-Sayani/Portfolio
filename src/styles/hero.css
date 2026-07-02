@@ -1,4 +1,4 @@
-/* ─── Hero — Chromatic Overdrive ─── */
+/* ─── Hero - Chromatic Overdrive ─── */
 
 .hero {
   position: relative;
@@ -190,7 +190,7 @@
   box-shadow: var(--glow-hot);
 }
 
-/* Role block — fixed slot, zero reflow */
+/* Role block - fixed slot, zero reflow */
 .hero__role-block {
   display: flex;
   flex-wrap: wrap;
@@ -627,7 +627,7 @@
   box-shadow: 0 0 8px var(--color-hot);
 }
 
-/* Tech ticker — seamless loop */
+/* Tech ticker - seamless loop */
 .hero__ticker {
   position: relative;
   z-index: 2;

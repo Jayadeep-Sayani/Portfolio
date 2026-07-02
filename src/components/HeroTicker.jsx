@@ -9,7 +9,7 @@ const ITEMS = [
   'Gemini',
 ]
 
-/* Long segment so the track always overflows the viewport — no empty gaps */
+/* Long segment so the track always overflows the viewport - no empty gaps */
 const SEGMENT = [...ITEMS, ...ITEMS, ...ITEMS].join(' · ') + ' · '
 
 const COPIES = 2

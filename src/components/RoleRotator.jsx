@@ -21,7 +21,7 @@ export function RoleRotator() {
 
   return (
     <span className="role-rotator" aria-live="polite">
-      {/* Invisible sizer locks width & height — no line reflow */}
+      {/* Invisible sizer locks width & height - no line reflow */}
       <span className="role-rotator__ghost" aria-hidden="true">
         {LONGEST}
       </span>
