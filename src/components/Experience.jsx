@@ -44,15 +44,50 @@ const carelifeRoles = [
   },
 ]
 
+const reviews = [
+  {
+    id: 'jcba',
+    name: 'Mackeda Bramwell',
+    role: 'Founder',
+    org: 'Jamaican Canadian Bar Association',
+    orgShort: 'JCBA',
+    orgUrl: 'https://jcba.ca/',
+    rating: 5,
+    quote:
+      'This is the second website project Jayadeep has completed for us, and once again he delivered excellent results. He is professional, responsive, and easy to work with. He took the time to understand our needs and created a modern, user-friendly website that reflects our organization well. His attention to detail, willingness to incorporate feedback, and commitment to quality made the entire process smooth and efficient. We are very pleased with the final product and would highly recommend Jayadeep to anyone looking for a reliable and talented website developer.',
+    excerpt:
+      'Professional, responsive, and easy to work with — with sharp attention to detail and a real commitment to incorporating feedback.',
+    highlights: ['Professional', 'Responsive', 'Detail-oriented', 'Client-focused'],
+    accent: 'lime',
+  },
+  {
+    id: 'unuhr',
+    name: 'Claude Armstrong',
+    role: 'Director',
+    org: 'UNUHR Inc.',
+    orgShort: 'UNUHR',
+    orgUrl: 'https://www.unuhr.com/',
+    rating: 5,
+    quote:
+      "We had the pleasure of working with Jayadeep as part of the team that developed our website, and his contributions were invaluable throughout the project. He was professional, collaborative, and highly responsive, always willing to assist and incorporate feedback to ensure the best possible outcome. Jayadeep's attention to detail, technical expertise, and commitment to quality helped make the project a success. We appreciate his hard work and would gladly recommend him to anyone seeking a skilled and dependable web professional.",
+    excerpt:
+      'Professional, collaborative, and highly responsive — invaluable on a team where quality and follow-through matter.',
+    highlights: ['Collaborative', 'Responsive', 'Technical', 'Dependable'],
+    accent: 'violet',
+  },
+]
+
 const clientProjects = [
   {
     id: 'unuhr',
     accent: 'violet',
     company: 'UNUHR Inc.',
+    companyUrl: 'https://www.unuhr.com/',
     role: 'Client project',
     via: 'Riipen',
     period: '2025',
     rating: '5★ review',
+    reviewId: 'unuhr',
     bullets: [
       'Full website design and build with SEO and UX tailored to client goals.',
       'Ongoing support, client communication, and launch strategy.',
@@ -64,10 +99,12 @@ const clientProjects = [
     accent: 'lime',
     company: 'Jamaican Canadian Bar Association',
     short: 'JCBA',
+    companyUrl: 'https://jcba.ca/',
     role: 'Client project',
     via: 'BrightSide Studio',
     period: '2025',
     rating: '5★ review',
+    reviewId: 'jcba',
     bullets: [
       'End-to-end site design, development, and maintenance for the association.',
       'Responsive layout, content structure, and search visibility.',
@@ -144,8 +181,11 @@ function FounderCard() {
         <div className="exp__founder-aside">
           <p className="exp__founder-aside-label">Also shipped for</p>
           <div className="exp__founder-clients">
-            <span className="exp__stars-pill">UNUHR · 5★</span>
-            <span className="exp__stars-pill">JCBA · 5★</span>
+            {reviews.map((review) => (
+              <a key={review.id} href="#client-reviews" className="exp__stars-pill">
+                {review.orgShort} · 5★
+              </a>
+            ))}
           </div>
           <ul className="exp__tags">
             {founder.tags.map((tag) => (
@@ -185,13 +225,24 @@ function CareLifeCard({ entry }) {
 }
 
 function ClientCard({ project }) {
+  const review = reviews.find((r) => r.id === project.reviewId)
+
   return (
     <article className={`exp__card exp__card--${project.accent} exp__card--client`}>
       <div className="exp__client-top">
         <span className="exp__stars-badge">{project.rating}</span>
         <span className="exp__via">via {project.via}</span>
       </div>
-      <h3 className="exp__role">{project.short ?? project.company}</h3>
+      <h3 className="exp__role">
+        {project.companyUrl ? (
+          <a href={project.companyUrl} target="_blank" rel="noreferrer">
+            {project.short ?? project.company}
+            <span aria-hidden="true"> ↗</span>
+          </a>
+        ) : (
+          project.short ?? project.company
+        )}
+      </h3>
       {project.short && <p className="exp__client-full">{project.company}</p>}
       <p className="exp__loc">
         {project.role} · {project.period}
@@ -203,12 +254,86 @@ function ClientCard({ project }) {
         ))}
       </ul>
 
+      {review && (
+        <blockquote className="exp__client-quote">
+          <p>"{review.excerpt}"</p>
+          <footer>
+            — {review.name}, {review.role} ·{' '}
+            <a href={review.orgUrl} target="_blank" rel="noreferrer">
+              {review.orgShort}
+            </a>
+          </footer>
+        </blockquote>
+      )}
+
       <ul className="exp__tags">
         {project.tags.map((tag) => (
           <li key={tag}>{tag}</li>
         ))}
       </ul>
     </article>
+  )
+}
+
+function Stars({ count = 5 }) {
+  return (
+    <span className="exp__review-stars" aria-label={`${count} out of 5 stars`}>
+      {'★'.repeat(count)}
+    </span>
+  )
+}
+
+function ClientTestimonials() {
+  return (
+    <div className="exp__reviews" id="client-reviews">
+      <Reveal>
+        <div className="exp__reviews-head">
+          <p className="exp__reviews-label">Client feedback</p>
+          <h3 className="exp__reviews-title">Trusted by the people I ship for</h3>
+          <p className="exp__reviews-lead">
+            Real words from founders and directors — on communication, collaboration, and delivery.
+          </p>
+        </div>
+      </Reveal>
+
+      <div className="exp__reviews-grid">
+        {reviews.map((review, i) => (
+          <Reveal key={review.id} delay={60 + i * 80}>
+            <article className={`exp__review exp__review--${review.accent}`}>
+              <div className="exp__review-top">
+                <Stars count={review.rating} />
+                <a
+                  href={review.orgUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="exp__review-org"
+                >
+                  {review.orgShort}
+                  <span aria-hidden="true"> ↗</span>
+                </a>
+              </div>
+
+              <blockquote className="exp__review-quote">
+                <p>{review.quote}</p>
+              </blockquote>
+
+              <ul className="exp__review-highlights">
+                {review.highlights.map((trait) => (
+                  <li key={trait}>{trait}</li>
+                ))}
+              </ul>
+
+              <footer className="exp__review-author">
+                <span className="exp__review-name">{review.name}</span>
+                <span className="exp__review-role">
+                  {review.role}, {review.org}
+                </span>
+              </footer>
+            </article>
+          </Reveal>
+        ))}
+      </div>
+    </div>
   )
 }
 
@@ -321,6 +446,8 @@ export function Experience() {
         ) : (
           <ExperienceList />
         )}
+
+        <ClientTestimonials />
       </div>
     </section>
   )
